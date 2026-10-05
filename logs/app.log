@@ -1,0 +1,104 @@
+2026-10-04 16:54:35,823 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 16:56:14,541 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 16:56:16,709 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:24:24,830 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:24:28,281 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:28:57,814 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:29:00,280 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:29:09,267 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:29:11,853 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:30:01,167 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:30:03,326 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:30:31,264 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:30:33,509 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:31:02,001 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:31:04,399 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:32:05,242 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:32:07,711 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:33:58,290 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:34:00,902 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:35:57,680 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:36:41,217 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:37:28,640 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:37:30,628 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:38:04,292 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:38:06,875 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-04 17:38:08,766 - ERROR - app.main - Validation error: 1 validation error:
+  {'type': 'string_too_short', 'loc': ('body', 'full_name'), 'msg': 'String should have at least 1 character', 'input': '', 'ctx': {'min_length': 1}}
+
+  File "D:\EnterpriseFastAPI\app\modules\auth\route.py", line 6, in login
+    POST /auth/login
+2026-10-04 17:38:12,387 - ERROR - app.main - Validation error: 1 validation error:
+  {'type': 'string_too_short', 'loc': ('body', 'full_name'), 'msg': 'String should have at least 1 character', 'input': '', 'ctx': {'min_length': 1}}
+
+  File "D:\EnterpriseFastAPI\app\modules\auth\route.py", line 6, in login
+    POST /auth/login
+2026-10-04 17:39:12,160 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-04 17:39:14,438 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 11:46:23,155 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 11:47:10,226 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 11:47:11,924 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 11:47:18,193 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 11:47:20,048 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 11:47:44,530 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 11:47:46,229 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 11:47:49,301 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 11:47:51,043 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 11:48:58,751 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 11:49:00,494 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:06:19,638 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:06:23,861 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:07:03,901 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:07:05,694 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:07:46,728 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:07:51,695 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:08:02,696 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:08:04,832 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:08:10,638 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:08:12,836 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:08:20,597 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:08:22,469 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:08:26,424 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:08:28,567 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:08:44,816 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:08:46,618 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:08:55,287 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:08:57,005 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:10:10,141 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:11:08,885 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:12:58,076 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:13:00,105 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:13:22,793 - INFO - root - New user registered: john.doe1@example.com
+2026-10-05 12:15:35,867 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 12:15:37,925 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 12:15:50,208 - INFO - Auth - New user registered: john.do2@example.com
+2026-10-05 13:02:01,557 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:02:07,289 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:02:47,057 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:02:50,226 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:03:06,093 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:03:07,972 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:03:30,011 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:03:31,665 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:03:52,420 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:03:54,244 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:04:10,154 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:04:12,280 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:04:44,207 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:04:46,009 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:05:06,614 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:05:08,290 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:07:34,126 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:07:36,465 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:07:58,482 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:08:00,392 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:09:59,055 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:10:00,963 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:10:44,785 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:10:46,428 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:11:11,018 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:11:15,509 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:12:11,161 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:12:13,500 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:12:51,971 - INFO - Auth - New user registered: sarker35-674@diu.edu.bd
+2026-10-05 13:16:13,597 - INFO - app.main - Application shutdown: Cleanup tasks completed.
