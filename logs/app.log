@@ -102,3 +102,62 @@
 2026-10-05 13:12:13,500 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-05 13:12:51,971 - INFO - Auth - New user registered: sarker35-674@diu.edu.bd
 2026-10-05 13:16:13,597 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:16:17,464 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:18:07,077 - INFO - Auth - New user registered: sarker35-674@diu.edu.bd
+2026-10-05 13:20:57,295 - INFO - Auth - New user registered: sarker35-674@diu.edu.bd
+2026-10-05 13:23:46,010 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-05 13:23:50,512 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-05 13:24:38,081 - INFO - Auth - New user registered: sarker35-674@diu.edu.bd
+2026-10-05 13:24:39,904 - ERROR - Auth - Failed to send welcome email to: sarker35-674@diu.edu.bd
+Traceback (most recent call last):
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\fastapi_mail\connection.py", line 50, in _configure_connection
+    await self.session.login(
+    ...<2 lines>...
+    )
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\aiosmtplib\smtp.py", line 1158, in login
+    response = await auth_method(username, password, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\aiosmtplib\smtp.py", line 1270, in auth_login
+    initial_response = await self.execute_command(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        b"AUTH", b"LOGIN", encoded_username, timeout=timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\aiosmtplib\smtp.py", line 613, in execute_command
+    response = await self.protocol.execute_command(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        *args, timeout=self.timeout if timeout is Default.token else timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\aiosmtplib\protocol.py", line 348, in execute_command
+    response = await self.read_response(timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\aiosmtplib\protocol.py", line 300, in read_response
+    result = await asyncio.wait_for(self._response_waiter, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Noyon\AppData\Local\Programs\Python\Python314\Lib\asyncio\tasks.py", line 486, in wait_for
+    return await fut
+           ^^^^^^^^^
+aiosmtplib.errors.SMTPServerDisconnected: Unexpected EOF received
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\EnterpriseFastAPI\app\modules\auth\service.py", line 40, in user_register_service
+    await send_email(new_user.email)
+  File "D:\EnterpriseFastAPI\app\core\mail.py", line 98, in send_email
+    await fm.send_message(message)
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\fastapi_mail\fastmail.py", line 128, in send_message
+    await self.__send_prepared_messages(prepared_messages)
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\fastapi_mail\fastmail.py", line 233, in __send_prepared_messages
+    async with Connection(self.config) as session:
+               ~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\fastapi_mail\connection.py", line 23, in __aenter__
+    await self._configure_connection()
+  File "D:\EnterpriseFastAPI\.venv\Lib\site-packages\fastapi_mail\connection.py", line 56, in _configure_connection
+    raise ConnectionErrors(
+        f"Exception raised {error}, check your credentials or email service configuration"
+    )
+fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, check your credentials or email service configuration

@@ -35,8 +35,11 @@ async def user_register_service(req, db: Session):
 
     logger.info(f"New user registered: {new_user.email}")
 
-    # Send a welcome email to the new user
-    await send_email(new_user.email)
-    logger.info(f"Welcome email sent to: {new_user.email}")
+    # Send a welcome email to the new user (non-blocking for registration)
+    try:
+        await send_email(new_user.email)
+        logger.info(f"Welcome email sent to: {new_user.email}")
+    except Exception:
+        logger.exception(f"Failed to send welcome email to: {new_user.email}")
     
     return {"message": "User registered successfully", "user": new_user}
