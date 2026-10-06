@@ -6,6 +6,7 @@ from app.core.db import Base, engine
 from app.core.logging import setup_logging
 from app.register_routes import combine_router
 
+
 # setup logging
 setup_logging()
 logger = logging.getLogger(__name__)

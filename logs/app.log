@@ -161,3 +161,18 @@ Traceback (most recent call last):
         f"Exception raised {error}, check your credentials or email service configuration"
     )
 fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, check your credentials or email service configuration
+2026-10-06 16:29:48,686 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-06 16:30:53,436 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-06 16:30:56,436 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-06 16:31:03,557 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-06 16:31:08,089 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-06 16:31:09,722 - INFO - httpx - HTTP Request: GET http://testserver/upazila/list "HTTP/1.1 200 OK"
+2026-10-06 16:31:45,331 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-06 16:31:47,729 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-06 16:32:09,904 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-06 16:32:12,000 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-06 16:32:45,293 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-06 16:32:49,568 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-06 16:32:51,348 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-06 16:32:54,055 - INFO - httpx - HTTP Request: GET http://testserver/upazila/list "HTTP/1.1 200 OK"
+2026-10-06 16:32:54,603 - INFO - app.main - Application startup: Database tables created and logging configured.

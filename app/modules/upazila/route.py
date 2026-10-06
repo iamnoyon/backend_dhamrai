@@ -8,5 +8,5 @@ router = APIRouter(prefix="/upazila", tags=["Upazila"])
 
 
 @router.get("/list", summary="Get all upazilas")
-async def get_upazilas(db: Session = Depends(get_db)):
+async def list_upazilas(db: Session = Depends(get_db)):
     return await get_upazilas(db)

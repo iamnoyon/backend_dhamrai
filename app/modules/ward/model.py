@@ -1,6 +1,6 @@
 from typing import Any
 from app.core.db import Base
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Integer, SmallInteger, ForeignKey, UniqueConstraint, Index
 from sqlalchemy.dialects.postgresql import JSONB
 
@@ -17,5 +17,3 @@ class Ward(Base):
     ward_no: Mapped[int] = mapped_column(SmallInteger, nullable=False)
     code: Mapped[str] = mapped_column(String(20), unique=True, nullable=False)
     geometry: Mapped[dict[str, Any]] = mapped_column(JSONB, nullable=False)
-
-    union: Mapped["Union"] = relationship(back_populates="wards")
