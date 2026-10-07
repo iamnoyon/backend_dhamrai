@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.core.db import get_db
 from .schema import FeatureCreateSchema, FeatureResultSchema
-from .service import get_features, create_feature_service, update_feature_result_service
+from .service import get_features, create_feature_service, update_feature_result_service, get_feature_results, get_feature_result_service
 
 router = APIRouter(prefix="/feature", tags=["Feature"])
 
@@ -19,3 +19,12 @@ async def create_feature(req: FeatureCreateSchema, db: Session = Depends(get_db)
 @router.put("/result", summary="Add or update a candidate's value for a ward")
 async def update_feature_result(req: FeatureResultSchema, db: Session = Depends(get_db)):
     return await update_feature_result_service(req, db)
+
+@router.get("/result/list", summary="Get all feature results")
+async def list_feature_results(db: Session = Depends(get_db)):
+    return await get_feature_results(db)
+
+
+@router.get("/result/{feature_id}", summary="Get results of a feature")
+async def feature_result(feature_id: int, db: Session = Depends(get_db)):
+    return await get_feature_result_service(feature_id, db)

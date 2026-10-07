@@ -135,3 +135,39 @@ async def update_feature_result_service(req, db: Session):
             "value": result.value,
         },
     }
+
+
+
+async def get_feature_results(db: Session):
+    logger.info("Fetching all feature results from the database")
+    return db.query(FeatureResult).all()
+
+# Service function to get a feature's results grouped by ward code
+async def get_feature_result_service(feature_id: int, db: Session):
+    # Check the feature exists
+    feature = db.get(Feature, feature_id)
+    if feature is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Feature {feature_id} not found"
+        )
+
+    # Saved values by (ward_id, candidate_id)
+    results = db.query(FeatureResult).filter(FeatureResult.feature_id == feature.id).all()
+    values = {(r.ward_id, r.candidate_id): r.value for r in results}
+
+    return {
+        "feature_id": feature.id,
+        "title": feature.title,
+        "union_id": feature.union_id,
+        "candidates": feature.candidates,
+        "wards": {
+            w["code"]: {
+                "union_id": w["union_id"],
+                "wardNo": w["ward_no"],
+                "totalVoters": w["total_voter"],
+                "votes": {c["id"]: values.get((w["ward_id"], c["id"]), 0) for c in feature.candidates},
+            }
+            for w in feature.wards
+        },
+    }

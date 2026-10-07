@@ -280,3 +280,17 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 11:56:13,396 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 200 OK"
 2026-10-07 11:56:13,403 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 404 Not Found"
 2026-10-07 11:56:13,407 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 422 Unprocessable Entity"
+2026-10-07 11:56:39,549 - INFO - Feature::Service - Result saved: feature 2, ward BD3026141431, candidate a = 200
+2026-10-07 11:59:50,491 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:59:53,049 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:00:09,653 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:00:12,026 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:00:32,570 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:00:34,889 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:00:38,657 - INFO - Feature::Service - Fetching all feature results from the database
+2026-10-07 12:04:58,655 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:05:01,815 - INFO - httpx - HTTP Request: GET http://testserver/feature/result/2 "HTTP/1.1 200 OK"
+2026-10-07 12:05:01,823 - INFO - httpx - HTTP Request: GET http://testserver/feature/result/999 "HTTP/1.1 404 Not Found"
+2026-10-07 12:05:01,826 - INFO - Feature::Service - Fetching all feature results from the database
+2026-10-07 12:05:01,830 - INFO - httpx - HTTP Request: GET http://testserver/feature/result/list "HTTP/1.1 200 OK"
+2026-10-07 12:05:01,946 - INFO - app.main - Application startup: Database tables created and logging configured.
