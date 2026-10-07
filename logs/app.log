@@ -294,3 +294,42 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 12:05:01,826 - INFO - Feature::Service - Fetching all feature results from the database
 2026-10-07 12:05:01,830 - INFO - httpx - HTTP Request: GET http://testserver/feature/result/list "HTTP/1.1 200 OK"
 2026-10-07 12:05:01,946 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:06:49,940 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 12:06:53,360 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 12:06:53,431 - INFO - Feature::Service - Fetching all feature results from the database
+2026-10-07 12:13:14,481 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 12:13:14,534 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 12:15:07,199 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 12:17:21,265 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:18:33,489 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:19:44,453 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:19:47,031 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:21:01,702 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:21:03,852 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:24:37,567 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:24:40,567 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:24:40,679 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:24:42,746 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:25:06,452 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:25:09,121 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:26:09,476 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:26:12,005 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:27:57,866 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 12:28:18,746 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 12:36:04,091 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 12:36:04,151 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 12:36:21,078 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 12:36:21,508 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 12:36:45,329 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 12:36:45,416 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 12:41:32,698 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 12:41:32,711 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 12:44:23,799 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 12:44:23,945 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 13:05:27,632 - INFO - Feature::Service - New feature created: 4 - Baisakanda UP Chairman Election 2026
+2026-10-07 13:10:37,630 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 13:10:47,863 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 13:11:03,180 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 13:11:08,801 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 13:11:23,805 - INFO - Feature::Service - New feature created: 5 - Test Union Feature
+2026-10-07 13:11:23,833 - INFO - Feature::Service - New feature created: 6 - Test All Feature

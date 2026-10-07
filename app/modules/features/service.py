@@ -1,4 +1,6 @@
 import logging
+from sqlalchemy import func
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from app.modules.union.model import Union
@@ -13,25 +15,53 @@ async def get_features(db: Session):
     return db.query(Feature).all()
 
 
+async def get_feature_dropdown(db: Session):
+    features = (
+        db.query(Feature.id, Feature.title)
+        .filter(Feature.status == "active")
+        .all()
+    )
+
+    return {
+        "success": True,
+        "message": "Feature dropdown list",
+        "data": [
+            {
+                "id": feature.id,
+                "title": feature.title
+            }
+            for feature in features
+        ]
+    }
+
+
+
 # Service function to create a feature with its wards and candidates
 async def create_feature_service(req, db: Session):
-    # Check the union exists for union based feature
-    if req.is_union_based and db.get(Union, req.union_id) is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Union {req.union_id} not found"
-        )
+    # Check the title is not already used (case-insensitive)
+    duplicate_title = HTTPException(
+        status_code=status.HTTP_409_CONFLICT,
+        detail=f"Feature with title '{req.title}' already exists"
+    )
+    if db.query(Feature).filter(func.lower(Feature.title) == req.title.lower()).first() is not None:
+        raise duplicate_title
 
-    # Resolve each ward by union_id + ward_no
-    wards = []
-    for w in req.wards:
-        ward = db.query(Ward).filter(Ward.union_id == w.union_id, Ward.ward_no == w.ward_no).first()
-        if ward is None:
+    # Union based feature takes all wards of its union, otherwise all wards of every union
+    if req.is_union_based:
+        if db.get(Union, req.union_id) is None:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Ward {w.ward_no} not found in union {w.union_id}"
+                detail=f"Union {req.union_id} not found"
             )
-        wards.append((ward, w.total_voter))
+        wards = db.query(Ward).filter(Ward.union_id == req.union_id).order_by(Ward.ward_no).all()
+    else:
+        wards = db.query(Ward).order_by(Ward.union_id, Ward.ward_no).all()
+
+    if not wards:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"No wards found for union {req.union_id}" if req.is_union_based else "No wards found"
+        )
 
     # Create the feature, wards and candidates are stored as json
     feature = Feature(
@@ -39,8 +69,8 @@ async def create_feature_service(req, db: Session):
         is_union_based = req.is_union_based,
         union_id = req.union_id,
         wards = [
-            {"ward_id": ward.id, "code": ward.code, "union_id": ward.union_id, "ward_no": ward.ward_no, "total_voter": total}
-            for ward, total in wards
+            {"ward_id": ward.id, "code": ward.code, "union_id": ward.union_id, "ward_no": ward.ward_no, "total_voter": 0}
+            for ward in wards
         ],
         candidates = [
             {"id": candidate_key(i), "name": c.name, "image": c.image}
@@ -48,7 +78,11 @@ async def create_feature_service(req, db: Session):
         ]
     )
     db.add(feature)
-    db.commit()
+    try:
+        db.commit()
+    except IntegrityError:
+        db.rollback()
+        raise duplicate_title
     db.refresh(feature)
 
     logger.info(f"New feature created: {feature.id} - {feature.title}")
