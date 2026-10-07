@@ -2,7 +2,7 @@ from typing import Any, Optional
 from datetime import datetime
 from app.core.db import Base
 from sqlalchemy.orm import Mapped, mapped_column
-from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, false
+from sqlalchemy import String, Integer, Boolean, DateTime, ForeignKey, UniqueConstraint, Index, false
 from sqlalchemy.dialects.postgresql import JSONB
 
 
@@ -17,3 +17,19 @@ class Feature(Base):
     candidates: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{id, name, image}]
 
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)
+
+
+class FeatureResult(Base):
+    __tablename__ = "feature_results"
+    __table_args__ = (
+        UniqueConstraint("feature_id", "ward_id", "candidate_id", name="feature_results_feature_id_ward_id_candidate_id_key"),
+        Index("idx_feature_results_feature_id", "feature_id"),
+    )
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    feature_id: Mapped[int] = mapped_column(Integer, ForeignKey("features.id", ondelete="CASCADE"), nullable=False)
+    ward_id: Mapped[int] = mapped_column(Integer, ForeignKey("wards.id", ondelete="CASCADE"), nullable=False)
+    candidate_id: Mapped[str] = mapped_column(String(10), nullable=False)  # candidate key from features.candidates, e.g. "a"
+    value: Mapped[int] = mapped_column(Integer, nullable=False)
+
+    updated_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)

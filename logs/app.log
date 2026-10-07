@@ -258,3 +258,25 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 11:27:34,181 - INFO - httpx - HTTP Request: POST http://testserver/feature/create "HTTP/1.1 200 OK"
 2026-10-07 11:28:47,767 - INFO - Feature::Service - Fetching all features from the database
 2026-10-07 11:30:47,262 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:30:50,200 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:30:51,040 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:46:04,741 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:46:07,554 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:46:12,235 - INFO - Feature::Service - Result saved: feature 2, ward BD3026141431, candidate a = 400
+2026-10-07 11:46:12,240 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 200 OK"
+2026-10-07 11:46:12,250 - INFO - Feature::Service - Result saved: feature 2, ward BD3026141431, candidate a = 450
+2026-10-07 11:46:12,253 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 200 OK"
+2026-10-07 11:46:12,261 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 404 Not Found"
+2026-10-07 11:46:12,266 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 404 Not Found"
+2026-10-07 11:46:12,272 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 404 Not Found"
+2026-10-07 11:46:12,277 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 404 Not Found"
+2026-10-07 11:46:12,310 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 422 Unprocessable Entity"
+2026-10-07 11:47:52,207 - INFO - Feature::Service - Result saved: feature 2, ward BD3026141431, candidate a = 400
+2026-10-07 11:47:58,262 - INFO - Feature::Service - Result saved: feature 2, ward BD3026141431, candidate a = 400
+2026-10-07 11:48:40,195 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:56:05,054 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:56:07,882 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:56:13,392 - INFO - Feature::Service - Result saved: feature 2, ward BD3026141431, candidate a = 400
+2026-10-07 11:56:13,396 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 200 OK"
+2026-10-07 11:56:13,403 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 404 Not Found"
+2026-10-07 11:56:13,407 - INFO - httpx - HTTP Request: PUT http://testserver/feature/result "HTTP/1.1 422 Unprocessable Entity"
