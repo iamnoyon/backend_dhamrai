@@ -237,3 +237,24 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 11:03:56,966 - INFO - app.main - Application shutdown: Cleanup tasks completed.
 2026-10-07 11:03:58,946 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-07 11:04:07,475 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:22:47,818 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:22:54,342 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:23:01,803 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:23:07,806 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:23:12,614 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:23:14,996 - INFO - Feature::Service - New feature created: 1 - Baisakanda UP Chairman Election 2026
+2026-10-07 11:23:15,004 - INFO - httpx - HTTP Request: POST http://testserver/feature/create "HTTP/1.1 200 OK"
+2026-10-07 11:23:15,012 - INFO - httpx - HTTP Request: POST http://testserver/feature/create "HTTP/1.1 404 Not Found"
+2026-10-07 11:23:15,033 - INFO - httpx - HTTP Request: POST http://testserver/feature/create "HTTP/1.1 422 Unprocessable Entity"
+2026-10-07 11:23:15,039 - INFO - httpx - HTTP Request: POST http://testserver/feature/create "HTTP/1.1 422 Unprocessable Entity"
+2026-10-07 11:23:15,320 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:24:04,965 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:24:28,525 - INFO - Feature::Service - New feature created: 2 - Baisakanda UP Chairman Election 2026
+2026-10-07 11:24:36,828 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:24:39,084 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:27:13,015 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:27:16,632 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:27:34,178 - INFO - Feature::Service - New feature created: 3 - TEST
+2026-10-07 11:27:34,181 - INFO - httpx - HTTP Request: POST http://testserver/feature/create "HTTP/1.1 200 OK"
+2026-10-07 11:28:47,767 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 11:30:47,262 - INFO - app.main - Application shutdown: Cleanup tasks completed.
