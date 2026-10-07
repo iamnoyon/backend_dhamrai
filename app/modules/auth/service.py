@@ -6,7 +6,7 @@ from fastapi import HTTPException, status
 from app.utils.hash import hash_password
 
 # Configure logging
-logger = logging.getLogger("Auth")
+logger = logging.getLogger("Auth::Service")
 
 # Service function for user registration
 async def user_register_service(req, db: Session):

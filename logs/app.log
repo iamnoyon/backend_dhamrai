@@ -206,3 +206,21 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-06 16:57:13,414 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-06 16:57:13,884 - INFO - httpx - HTTP Request: OPTIONS http://testserver/upazila/list "HTTP/1.1 200 OK"
 2026-10-06 16:57:13,904 - INFO - httpx - HTTP Request: GET http://testserver/upazila/list "HTTP/1.1 200 OK"
+2026-10-07 10:54:39,842 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:55:24,419 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:55:28,015 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:55:55,077 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:55:57,934 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:56:02,789 - INFO - Union - Fetching all unions from the database
+2026-10-07 10:56:32,280 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:56:34,711 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:56:34,737 - INFO - Union:Service - Fetching all unions from the database
+2026-10-07 10:57:08,727 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:57:10,880 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:57:19,109 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:57:21,410 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:57:21,436 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 10:58:22,184 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:58:24,401 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 10:58:49,301 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 10:58:51,602 - INFO - app.main - Application startup: Database tables created and logging configured.
