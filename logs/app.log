@@ -224,3 +224,16 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 10:58:24,401 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-07 10:58:49,301 - INFO - app.main - Application shutdown: Cleanup tasks completed.
 2026-10-07 10:58:51,602 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:00:54,472 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:00:58,386 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:01:48,818 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:01:51,089 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:01:54,517 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:01:57,858 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:02:58,865 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:03:01,358 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:03:24,862 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:03:27,247 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:03:56,966 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 11:03:58,946 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 11:04:07,475 - INFO - Feature::Service - Fetching all features from the database
