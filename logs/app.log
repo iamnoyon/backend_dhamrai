@@ -333,3 +333,43 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 13:11:08,801 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-07 13:11:23,805 - INFO - Feature::Service - New feature created: 5 - Test Union Feature
 2026-10-07 13:11:23,833 - INFO - Feature::Service - New feature created: 6 - Test All Feature
+2026-10-07 13:12:24,823 - INFO - Feature::Service - New feature created: 7 - Baisakanda UP Chairman Election 2025
+2026-10-07 13:13:54,624 - INFO - Feature::Service - New feature created: 8 - Dhamrai MP Election 2026
+2026-10-07 13:14:15,036 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 13:14:15,069 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:07:08,307 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 15:07:17,876 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 15:07:20,942 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 15:07:23,657 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 15:07:27,081 - INFO - Feature::Service - New feature created: 9 - Tmp All
+2026-10-07 15:07:27,098 - INFO - Feature::Service - New feature created: 10 - Tmp Union
+2026-10-07 15:07:27,111 - INFO - Feature::Service - Result saved: feature 9, ward BD3026141431, candidate a = 10
+2026-10-07 15:07:27,129 - INFO - Feature::Service - Result saved: feature 10, ward BD3026141431, candidate a = 10
+2026-10-07 15:08:39,341 - INFO - Feature::Service - Result saved: feature 8, ward BD3026141091, candidate a = 400
+2026-10-07 15:08:59,931 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:08:59,991 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:14:18,428 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:14:18,576 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:19:49,410 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:19:49,437 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:32:05,445 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:32:05,453 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:33:27,496 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:33:27,514 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:34:45,428 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:34:45,448 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:38:58,027 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:39:50,147 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 15:39:57,601 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 15:41:09,645 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:41:09,748 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:42:26,124 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 15:42:31,704 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 15:42:33,693 - INFO - httpx - HTTP Request: OPTIONS http://testserver/ "HTTP/1.1 200 OK"
+2026-10-07 15:42:33,696 - INFO - httpx - HTTP Request: OPTIONS http://testserver/ "HTTP/1.1 200 OK"
+2026-10-07 15:42:33,699 - INFO - httpx - HTTP Request: OPTIONS http://testserver/ "HTTP/1.1 400 Bad Request"
+2026-10-07 15:42:39,696 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 15:42:43,458 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 15:42:47,076 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:42:47,242 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:45:16,869 - INFO - app.main - Application shutdown: Cleanup tasks completed.

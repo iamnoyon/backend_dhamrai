@@ -110,21 +110,30 @@ async def update_feature_result_service(req, db: Session):
             detail=f"Feature {req.feature_id} not found"
         )
 
-    # Check the union is part of this feature
-    union_wards = [w for w in feature.wards if w["union_id"] == req.union_id]
-    if not union_wards:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Union {req.union_id} is not part of this feature"
-        )
+    if feature.is_union_based:
+        # Check the union is part of this feature
+        union_wards = [w for w in feature.wards if w["union_id"] == req.union_id]
+        if not union_wards:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Union {req.union_id} is not part of this feature"
+            )
 
-    # Check the ward exists in this feature's union
-    ward = next((w for w in union_wards if w["code"] == req.ward_code), None)
-    if ward is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=f"Ward {req.ward_code} not found in union {req.union_id} for this feature"
-        )
+        # Check the ward exists in this feature's union
+        ward = next((w for w in union_wards if w["code"] == req.ward_code), None)
+        if ward is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Ward {req.ward_code} not found in union {req.union_id} for this feature"
+            )
+    else:
+        # Not union based, ward code is enough to find the ward in this feature
+        ward = next((w for w in feature.wards if w["code"] == req.ward_code), None)
+        if ward is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Ward {req.ward_code} not found for this feature"
+            )
 
     # Check the candidate exists in this feature
     name = req.candidate_name.strip().lower()
@@ -161,7 +170,7 @@ async def update_feature_result_service(req, db: Session):
         "message": "Result saved successfully",
         "result": {
             "feature_id": feature.id,
-            "union_id": req.union_id,
+            "union_id": ward["union_id"],
             "ward_no": ward["ward_no"],
             "ward_code": ward["code"],
             "candidate_id": candidate["id"],
