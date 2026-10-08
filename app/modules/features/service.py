@@ -35,6 +35,44 @@ async def get_feature_dropdown(db: Session):
     }
 
 
+# Service funtion to get feature by id
+async def get_featureById(id, db: Session):
+    feature = db.query(Feature).filter(Feature.id == id).first()
+
+    if not feature:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Feature not found!"
+        )
+
+    # Union names by id, for the feature's union and every ward's union
+    union_ids = {w["union_id"] for w in feature.wards}
+    if feature.union_id is not None:
+        union_ids.add(feature.union_id)
+    union_names = dict(db.query(Union.id, Union.name).filter(Union.id.in_(union_ids)).all())
+
+    return {
+        "success": True,
+        "message": "Feature retrive by id",
+        "data": {
+            "id": feature.id,
+            "title": feature.title,
+            "is_union_based": feature.is_union_based,
+            "union_id": feature.union_id,
+            "union_name": union_names.get(feature.union_id),
+            "status": feature.status,
+            "candidates": feature.candidates,
+            "wards": [
+                {**w, "union_name": union_names.get(w["union_id"])}
+                for w in feature.wards
+            ],
+            "created_at": feature.created_at,
+            "updated_at": feature.updated_at,
+        }
+    }
+
+
+
 
 # Service function to create a feature with its wards and candidates
 async def create_feature_service(req, db: Session):

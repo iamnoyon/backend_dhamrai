@@ -373,3 +373,29 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-07 15:42:47,076 - INFO - Union::Service - Fetching all unions from the database
 2026-10-07 15:42:47,242 - INFO - Ward::Service - Fetching all wards from the database
 2026-10-07 15:45:16,869 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 15:45:21,596 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 15:45:24,910 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:45:25,152 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:49:59,358 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:49:59,385 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:52:56,886 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:52:56,907 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:53:24,828 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:53:25,074 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:54:07,818 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:54:07,864 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 15:54:28,125 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 15:54:28,191 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-07 17:47:49,208 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-07 17:48:01,356 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 17:48:05,917 - INFO - Feature::Service - Fetching all features from the database
+2026-10-07 17:52:55,246 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-07 17:54:23,215 - INFO - Union::Service - Fetching all unions from the database
+2026-10-07 17:54:23,286 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 10:15:49,626 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 10:18:32,377 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 10:32:52,511 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 10:33:41,456 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 10:33:43,659 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 10:36:30,697 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 10:36:34,457 - INFO - app.main - Application startup: Database tables created and logging configured.

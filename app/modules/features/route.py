@@ -8,7 +8,8 @@ from .service import (
     update_feature_result_service, 
     get_feature_results, 
     get_feature_result_service,
-    get_feature_dropdown
+    get_feature_dropdown,
+    get_featureById
 )
 
 router = APIRouter(prefix="/feature", tags=["Feature"])
@@ -25,6 +26,11 @@ async def dropdown_feature(db: Session = Depends(get_db)):
 @router.post("/create", summary="Create a feature with wards and candidates")
 async def create_feature(req: FeatureCreateSchema, db: Session = Depends(get_db)):
     return await create_feature_service(req, db)
+
+
+@router.get("/{id}", summary="Get feature by Id")
+async def get_feature_by_id(id: int, db: Session = Depends(get_db)):
+    return await get_featureById(id, db)
 
 
 @router.put("/result", summary="Add or update a candidate's value for a ward")
