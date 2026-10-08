@@ -25,7 +25,11 @@ app = FastAPI(
 # allow requests from localhost (any port) and the deployed frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://frontend-basement-pdqp.vercel.app"],
+    allow_origins=[
+        "https://frontend-basement-pdqp.vercel.app",
+        "https://dhamrai.systems.bd",
+        "https://www.dhamrai.systems.bd",
+    ],
     allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
     allow_credentials=True,
     allow_methods=["*"],
