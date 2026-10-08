@@ -72,7 +72,7 @@ async def get_featureById(id, db: Session):
     }
 
 
-# Service function to update a feature's candidates and its wards' total voters
+# Service function to update a feature's candidates and its wards' total numbers
 async def update_feature_service(id: int, req, db: Session):
     feature = db.get(Feature, id)
     if feature is None:
@@ -81,11 +81,11 @@ async def update_feature_service(id: int, req, db: Session):
             detail="Feature not found!"
         )
 
-    # Total voters, a ward is matched by (union_id, ward_id), ward_id is null for a union without wards
+    # Total numbers, a ward is matched by (union_id, ward_id), ward_id is null for a union without wards
     if req.wards is not None:
-        voters = {(w.union_id, w.ward_id): w.total_voter for w in req.wards}
+        totals = {(w.union_id, w.ward_id): w.total_number for w in req.wards}
         known = {(w["union_id"], w["ward_id"]) for w in feature.wards}
-        missing = [key for key in voters if key not in known]
+        missing = [key for key in totals if key not in known]
         if missing:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
@@ -93,7 +93,7 @@ async def update_feature_service(id: int, req, db: Session):
             )
         # Assign a new list so the json change is saved
         feature.wards = [
-            {**w, "total_voter": voters.get((w["union_id"], w["ward_id"]), w["total_voter"])}
+            {**w, "total_number": totals.get((w["union_id"], w["ward_id"]), w["total_number"])}
             for w in feature.wards
         ]
 
@@ -174,11 +174,11 @@ async def create_feature_service(req, db: Session):
         union_wards = wards_by_union.get(union.id)
         if union_wards:
             entries.extend(
-                {"ward_id": ward.id, "code": ward.code, "union_id": union.id, "ward_no": ward.ward_no, "total_voter": 0}
+                {"ward_id": ward.id, "code": ward.code, "union_id": union.id, "ward_no": ward.ward_no, "total_number": 0}
                 for ward in union_wards
             )
         else:
-            entries.append({"ward_id": None, "code": None, "union_id": union.id, "ward_no": None, "total_voter": 0})
+            entries.append({"ward_id": None, "code": None, "union_id": union.id, "ward_no": None, "total_number": 0})
 
     # Create the feature, wards and candidates are stored as json
     feature = Feature(
@@ -332,7 +332,7 @@ async def get_feature_result_service(feature_id: int, db: Session):
             w["code"] or f"union-{w['union_id']}": {
                 "union_id": w["union_id"],
                 "wardNo": w["ward_no"],
-                "totalVoters": w["total_voter"],
+                "Total_Number": w["total_number"],
                 "votes": {c["id"]: values.get((w["union_id"], w["ward_id"], c["id"]), 0) for c in feature.candidates},
             }
             for w in feature.wards

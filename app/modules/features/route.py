@@ -41,7 +41,7 @@ async def update_feature_result(req: FeatureResultSchema, db: Session = Depends(
 
 
 # Declared after PUT /result so "result" is not taken as a feature id
-@router.put("/{id}", summary="Update a feature's candidates and wards' total voters", dependencies=[Depends(get_current_superadmin)])
+@router.put("/{id}", summary="Update a feature's candidates and wards' total numbers", dependencies=[Depends(get_current_superadmin)])
 async def update_feature(id: int, req: FeatureUpdateSchema, db: Session = Depends(get_db)):
     return await update_feature_service(id, req, db)
 

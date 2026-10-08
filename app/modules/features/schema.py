@@ -46,7 +46,7 @@ class CandidateUpdateSchema(CandidateSchema):
 class WardVoterSchema(BaseModel):
     ward_id: Optional[int] = Field(None, example=4)  # null for a union without wards (paurashava)
     union_id: int = Field(..., example=2)
-    total_voter: int = Field(..., ge=0, example=1000)
+    total_number: int = Field(..., ge=0, example=1000)
 
 
 class FeatureUpdateSchema(BaseModel):

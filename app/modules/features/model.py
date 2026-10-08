@@ -22,7 +22,7 @@ class Feature(Base):
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     is_union_based: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default=false())
     union_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("unions.id", ondelete="SET NULL"), nullable=True)
-    wards: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{ward_id, code, union_id, ward_no, total_voter}], ward_id/code/ward_no are null for a union without wards (paurashava)
+    wards: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{ward_id, code, union_id, ward_no, total_number}], ward_id/code/ward_no are null for a union without wards (paurashava)
     candidates: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{id, name, image}]
     status: Mapped[FeatureStatus] = mapped_column(String(10), nullable=False, default=FeatureStatus.ACTIVE, server_default=FeatureStatus.ACTIVE.value)  # active, inactive
 
