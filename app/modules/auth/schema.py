@@ -8,3 +8,8 @@ class UserRegisterSchema(BaseModel):
     dob: str = Field(..., pattern=r"^\d{4}-\d{2}-\d{2}$", example="1990-01-01")  # Format: YYYY-MM-DD
 
 
+
+
+class LoginSchema(BaseModel):
+    email: EmailStr = Field(..., example="superadmin@example.com")
+    password: str = Field(..., min_length=1, max_length=255, example="password123")

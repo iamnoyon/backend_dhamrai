@@ -3,7 +3,9 @@ import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.core.db import Base, engine
+from sqlalchemy import text
+from app.core.db import Base, engine, sessionLocal
+from app.modules.users.service import create_superadmin
 from app.core.logging import setup_logging
 from app.register_routes import combine_router
 
@@ -33,10 +35,19 @@ app.add_middleware(
 # create database tables
 Base.metadata.create_all(bind=engine)
 
+# create_all does not add new columns to existing tables
+with engine.begin() as conn:
+    conn.execute(text("ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(20) NOT NULL DEFAULT 'user'"))
+
 
 # startup event to log application startup
 @app.on_event("startup")
 async def startup_event():
+    db = sessionLocal()
+    try:
+        create_superadmin(db)
+    finally:
+        db.close()
     logger.info("Application startup: Database tables created and logging configured.")
 
 

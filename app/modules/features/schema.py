@@ -34,6 +34,32 @@ class FeatureCreateSchema(BaseModel):
 class FeatureResultSchema(BaseModel):
     feature_id: int = Field(..., example=2)
     union_id: int = Field(..., example=2)
-    ward_code: str = Field(..., min_length=1, max_length=20, example="BD3026141431")
+    ward_code: Optional[str] = Field(None, min_length=1, max_length=20, example="BD3026141431")  # null for a union without wards (paurashava)
     candidate_name: str = Field(..., min_length=1, max_length=100, example="A")
     value: int = Field(..., ge=0, example=400)
+
+
+class CandidateUpdateSchema(CandidateSchema):
+    id: Optional[str] = Field(None, max_length=10, example="a")  # null for a new candidate
+
+
+class WardVoterSchema(BaseModel):
+    ward_id: Optional[int] = Field(None, example=4)  # null for a union without wards (paurashava)
+    union_id: int = Field(..., example=2)
+    total_voter: int = Field(..., ge=0, example=1000)
+
+
+class FeatureUpdateSchema(BaseModel):
+    candidates: Optional[list[CandidateUpdateSchema]] = Field(None, min_length=1)
+    wards: Optional[list[WardVoterSchema]] = None
+
+    @model_validator(mode="after")
+    def check_candidates(self):
+        if self.candidates is not None:
+            names = [c.name.strip().lower() for c in self.candidates]
+            if len(names) != len(set(names)):
+                raise ValueError("duplicate candidate name in candidates")
+            ids = [c.id for c in self.candidates if c.id is not None]
+            if len(ids) != len(set(ids)):
+                raise ValueError("duplicate candidate id in candidates")
+        return self

@@ -399,3 +399,79 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-08 10:33:43,659 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-08 10:36:30,697 - INFO - app.main - Application shutdown: Cleanup tasks completed.
 2026-10-08 10:36:34,457 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:08:12,519 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:08:12,681 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:10:23,944 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:10:30,184 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:10:38,411 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:10:41,204 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:10:52,285 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:10:55,133 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:11:33,799 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:11:33,885 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:11:41,566 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:11:41,788 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:12:17,053 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:12:20,375 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:12:25,288 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:12:26,111 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:13:25,409 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:13:28,828 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:19:43,082 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:19:51,420 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:19:51,531 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:19:53,519 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:19:53,659 - INFO - Feature::Service - Feature updated: 7 - Baisakanda UP Chairman Election 2025
+2026-10-08 11:24:19,019 - INFO - Feature::Service - Feature updated: 2 - Baisakanda UP Chairman Election 2026
+2026-10-08 11:25:43,697 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 11:25:51,396 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 11:25:56,769 - INFO - Feature::Service - Feature updated: 2 - Baisakanda UP Chairman Election 2026
+2026-10-08 11:26:14,341 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:26:14,549 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:39:59,403 - INFO - Feature::Service - New feature created: 11 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 11:40:56,958 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:40:57,022 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:42:33,913 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:42:33,964 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:43:13,194 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:43:13,234 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:46:02,991 - INFO - Feature::Service - Feature updated: 11 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 11:46:07,970 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:46:08,031 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:47:24,663 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:47:24,711 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:50:41,430 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:50:41,516 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:52:59,965 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:53:00,060 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:54:37,808 - INFO - Feature::Service - Feature updated: 11 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 11:57:22,293 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:57:22,310 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:57:25,059 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:57:25,122 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:58:07,106 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:58:07,121 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:58:18,582 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:58:18,631 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:58:20,919 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:58:21,260 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:58:24,664 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:58:24,682 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 11:59:22,917 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 11:59:22,947 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 12:05:38,073 - INFO - Feature::Service - Feature updated: 11 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 12:05:48,614 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 12:05:49,049 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 12:06:42,549 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 12:06:42,566 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 12:06:56,173 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 12:06:56,227 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 12:11:51,150 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 12:12:01,612 - INFO - User::Service - Superadmin created: superadmin@example.com
+2026-10-08 12:12:01,613 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 12:14:10,249 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 12:14:12,884 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 12:14:34,210 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 12:14:38,170 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 12:14:50,764 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 12:14:51,142 - INFO - Feature::Service - Feature updated: 7 - Baisakanda UP Chairman Election 2025

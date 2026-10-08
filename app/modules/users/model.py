@@ -10,6 +10,12 @@ class UserStatus(str, Enum):
     BANNED = "banned"
 
 
+class UserRole(str, Enum):
+    SUPERADMIN = "superadmin"
+    ADMIN = "admin"
+    USER = "user"
+
+
 class User(Base):
     __tablename__ = "users"
 
@@ -19,6 +25,7 @@ class User(Base):
     phone_number: Mapped[str] = mapped_column(String(15), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(String(255), nullable=False)
     dob: Mapped[str] = mapped_column(String(10), nullable=False)  # Format: YYYY-MM-DD
+    role: Mapped[UserRole] = mapped_column(String(20), nullable=False, default=UserRole.USER, server_default=UserRole.USER.value)  # superadmin, admin, user
     status: Mapped[UserStatus] = mapped_column(String(10), nullable=False, default=UserStatus.ACTIVE)  # active, inactive, banned
 
     created_at: Mapped[datetime] = mapped_column(DateTime, nullable=False, default=datetime.utcnow)

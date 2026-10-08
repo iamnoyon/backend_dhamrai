@@ -22,7 +22,7 @@ class Feature(Base):
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     is_union_based: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False, server_default=false())
     union_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("unions.id", ondelete="SET NULL"), nullable=True)
-    wards: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{ward_id, code, union_id, ward_no, total_voter}]
+    wards: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{ward_id, code, union_id, ward_no, total_voter}], ward_id/code/ward_no are null for a union without wards (paurashava)
     candidates: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, nullable=False)  # [{id, name, image}]
     status: Mapped[FeatureStatus] = mapped_column(String(10), nullable=False, default=FeatureStatus.ACTIVE, server_default=FeatureStatus.ACTIVE.value)  # active, inactive
 
@@ -33,13 +33,14 @@ class Feature(Base):
 class FeatureResult(Base):
     __tablename__ = "feature_results"
     __table_args__ = (
-        UniqueConstraint("feature_id", "ward_id", "candidate_id", name="feature_results_feature_id_ward_id_candidate_id_key"),
+        UniqueConstraint("feature_id", "union_id", "ward_id", "candidate_id", name="feature_results_feature_union_ward_candidate_key", postgresql_nulls_not_distinct=True),
         Index("idx_feature_results_feature_id", "feature_id"),
     )
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     feature_id: Mapped[int] = mapped_column(Integer, ForeignKey("features.id", ondelete="CASCADE"), nullable=False)
-    ward_id: Mapped[int] = mapped_column(Integer, ForeignKey("wards.id", ondelete="CASCADE"), nullable=False)
+    union_id: Mapped[int] = mapped_column(Integer, ForeignKey("unions.id", ondelete="CASCADE"), nullable=False)
+    ward_id: Mapped[Optional[int]] = mapped_column(Integer, ForeignKey("wards.id", ondelete="CASCADE"), nullable=True)  # null for a union without wards (paurashava)
     candidate_id: Mapped[str] = mapped_column(String(10), nullable=False)  # candidate key from features.candidates, e.g. "a"
     value: Mapped[int] = mapped_column(Integer, nullable=False)
 
