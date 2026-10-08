@@ -91,6 +91,20 @@ async def update_feature_service(id: int, req, db: Session):
                 status_code=status.HTTP_404_NOT_FOUND,
                 detail=f"Wards not found in this feature (union_id, ward_id): {missing}"
             )
+
+        # An entry without ward (null ward_id) is only allowed for a paurashava union
+        no_ward_union_ids = {union_id for union_id, ward_id in totals if ward_id is None}
+        if no_ward_union_ids:
+            paurashava_ids = {
+                u.id for u in db.query(Union.id).filter(Union.id.in_(no_ward_union_ids), Union.is_paurashava.is_(True))
+            }
+            not_paurashava = sorted(no_ward_union_ids - paurashava_ids)
+            if not_paurashava:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=f"Unions {not_paurashava} are not paurashava, ward_id is required"
+                )
+
         # Assign a new list so the json change is saved
         feature.wards = [
             {**w, "total_number": totals.get((w["union_id"], w["ward_id"]), w["total_number"])}
@@ -225,7 +239,18 @@ async def update_feature_result_service(req, db: Session):
         )
 
     if req.ward_code is None:
-        # No ward code, the union must be a union without wards (paurashava) in this feature
+        # No ward code, the union must be a paurashava with a direct entry in this feature
+        union = db.get(Union, req.union_id)
+        if union is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Union {req.union_id} not found"
+            )
+        if not union.is_paurashava:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Union {req.union_id} is not paurashava, ward_code is required"
+            )
         ward = next((w for w in feature.wards if w["union_id"] == req.union_id and w["ward_id"] is None), None)
         if ward is None:
             raise HTTPException(

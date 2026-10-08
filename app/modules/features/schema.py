@@ -34,18 +34,42 @@ class FeatureCreateSchema(BaseModel):
 class FeatureResultSchema(BaseModel):
     feature_id: int = Field(..., example=2)
     union_id: int = Field(..., example=2)
-    ward_code: Optional[str] = Field(None, min_length=1, max_length=20, example="BD3026141431")  # null for a union without wards (paurashava)
+    ward_code: Optional[str] = Field(None, min_length=1, max_length=20, example="BD3026141431")  # null for a paurashava union
     candidate_name: str = Field(..., min_length=1, max_length=100, example="A")
     value: int = Field(..., ge=0, example=400)
 
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {"feature_id": 2, "union_id": 2, "ward_code": "BD3026141431", "candidate_name": "A", "value": 400},
+                {"feature_id": 13, "union_id": 7, "ward_code": None, "candidate_name": "Durga Puja", "value": 400},
+            ]
+        }
+    }
 
-class CandidateUpdateSchema(CandidateSchema):
+    # An empty ward code is the same as null
+    @field_validator("ward_code", mode="before")
+    @classmethod
+    def blank_ward_code(cls, v):
+        if isinstance(v, str):
+            v = v.strip()
+            return v or None
+        return v
+
+
+class CandidateUpdateSchema(BaseModel):
     id: Optional[str] = Field(None, max_length=10, example="a")  # null for a new candidate
+    name: str = Field(..., min_length=1, max_length=100, example="A")
+    image: Optional[str] = Field(None, max_length=500, example="https://example.com/a.png")
 
 
+# Same shape as a ward from GET /feature/{id}, a ward is matched by union_id + ward_id, the other fields are not used
 class WardVoterSchema(BaseModel):
+    code: Optional[str] = Field(None, max_length=20, example="BD3026141431")  # null for a union without wards (paurashava)
     ward_id: Optional[int] = Field(None, example=4)  # null for a union without wards (paurashava)
+    ward_no: Optional[int] = Field(None, example=1)  # null for a union without wards (paurashava)
     union_id: int = Field(..., example=2)
+    union_name: Optional[str] = Field(None, example="Baisakanda")
     total_number: int = Field(..., ge=0, example=1000)
 
 

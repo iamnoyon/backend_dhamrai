@@ -504,3 +504,45 @@ fastapi_mail.errors.ConnectionErrors: Exception raised Unexpected EOF received, 
 2026-10-08 12:53:20,353 - INFO - Ward::Service - Fetching all wards from the database
 2026-10-08 12:54:52,452 - INFO - app.main - Application shutdown: Cleanup tasks completed.
 2026-10-08 12:54:55,685 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 12:55:05,398 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 12:55:06,154 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 12:56:54,507 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 12:56:54,551 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 12:57:38,118 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 12:57:38,189 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 13:07:01,272 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:10:54,056 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 13:10:54,131 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:11:06,107 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 13:11:08,792 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 13:11:10,842 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 13:11:10,930 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:11:39,629 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:11:51,390 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:12:08,172 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:13:43,318 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 13:13:43,401 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:13:44,334 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:14:05,701 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:15:13,558 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:16:40,080 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 13:16:41,466 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:16:47,817 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 13:16:48,045 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:16:48,964 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:19:14,695 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 13:20:01,535 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 13:20:04,713 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 13:20:04,967 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-08 13:20:38,105 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 13:20:45,772 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:22:25,893 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:22:35,404 - INFO - Union::Service - Fetching all unions from the database
+2026-10-08 13:22:39,421 - INFO - Feature::Service - Feature updated: 13 - ধামরাই শারদীয় দুর্গোৎসব ২০২৬
+2026-10-08 13:25:29,039 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 13:25:31,656 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 13:26:51,104 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-08 13:26:53,527 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-08 13:27:05,745 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-08 13:27:06,988 - INFO - Feature::Service - Result saved: feature 13, union 7, ward None, candidate a = 400
+2026-10-08 13:27:07,054 - INFO - Feature::Service - Result saved: feature 13, union 7, ward None, candidate a = 450
