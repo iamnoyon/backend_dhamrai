@@ -85,3 +85,22 @@ async def login_service(req, db: Session):
             },
         },
     }
+
+
+# Service function to return the logged in user, without the password
+async def get_me_service(user: User):
+    return {
+        "success": True,
+        "message": "Current user",
+        "data": {
+            "id": user.id,
+            "full_name": user.full_name,
+            "email": user.email,
+            "phone_number": user.phone_number,
+            "dob": user.dob,
+            "role": user.role,
+            "status": user.status,
+            "created_at": user.created_at,
+            "updated_at": user.updated_at,
+        },
+    }

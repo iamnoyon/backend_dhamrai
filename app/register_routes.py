@@ -6,6 +6,7 @@ from app.modules.upazila.route import router as upazila_router
 from app.modules.union.route import router as union_router
 from app.modules.ward.route import router as ward_router
 from app.modules.features.route import router as feature_router
+from app.modules.durga_puja.route import router as durga_puja_router
 
 # create a router instance
 combine_router = APIRouter()
@@ -17,3 +18,4 @@ combine_router.include_router(upazila_router)
 combine_router.include_router(union_router)
 combine_router.include_router(ward_router)
 combine_router.include_router(feature_router)
+combine_router.include_router(durga_puja_router)

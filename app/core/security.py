@@ -32,8 +32,8 @@ def create_access_token(user: User) -> str:
     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
 
-# Dependency that requires a valid token of an active superadmin
-def get_current_superadmin(
+# Dependency that requires a valid token of an active user
+def get_current_user(
     credentials: HTTPAuthorizationCredentials | None = Depends(bearer_scheme),
     db: Session = Depends(get_db),
 ) -> User:
@@ -55,10 +55,15 @@ def get_current_superadmin(
     except (jwt.InvalidTokenError, KeyError, ValueError):
         raise unauthorized
 
-    # Check the user still exists, is active and is still a superadmin
+    # Check the user still exists and is active
     user = db.get(User, user_id)
     if user is None or user.status != UserStatus.ACTIVE:
         raise unauthorized
+    return user
+
+
+# Dependency that requires a valid token of an active superadmin
+def get_current_superadmin(user: User = Depends(get_current_user)) -> User:
     if user.role != UserRole.SUPERADMIN:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
