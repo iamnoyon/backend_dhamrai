@@ -7,6 +7,7 @@ from sqlalchemy import text
 from app.core.db import Base, engine, sessionLocal
 from app.modules.users.service import create_superadmin
 from app.core.logging import setup_logging
+from app.core.rate_limit import RateLimitMiddleware
 from app.register_routes import combine_router
 
 
@@ -20,6 +21,10 @@ app = FastAPI(
     title="Enterprise FastAPI Application",
     description="This is a FastAPI application with PostgreSQL integration and modular architecture.",
 )
+
+
+# limit requests per client ip, added before CORS so 429 responses still get CORS headers
+app.add_middleware(RateLimitMiddleware)
 
 
 # allow requests from localhost (any port) and the deployed frontend
