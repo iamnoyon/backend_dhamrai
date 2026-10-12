@@ -12,7 +12,13 @@ logger = logging.getLogger("Feature::Service")
 
 async def get_features(db: Session):
     logger.info("Fetching all features from the database")
-    return db.query(Feature).all()
+    result = db.query(Feature).all()
+
+    return {
+        "success": True,
+        "message": "Features are retrived successfully!",
+        "data": result
+    }
 
 
 async def get_feature_dropdown(db: Session):
