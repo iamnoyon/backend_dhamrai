@@ -7,7 +7,14 @@ logger = logging.getLogger("Ward::Service")
 
 async def get_wards(db: Session):
     logger.info("Fetching all wards from the database")
-    return db.query(Ward).all()
+    result = db.query(Ward).all()
+
+    return {
+        "success": True,
+        "message": "Wards are retrived successfully!",
+        "data": result
+    }
+
 
 # Service function for the ward dropdown, optionally of one union, wards have no name so it is built from the ward number
 async def get_ward_dropdown(union_id, db: Session):

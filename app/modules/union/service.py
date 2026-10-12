@@ -6,7 +6,12 @@ logger = logging.getLogger("Union::Service")
 
 async def get_unions(db: Session):
     logger.info("Fetching all unions from the database")
-    return db.query(Union).all()
+    result =  db.query(Union).all()
+    return {
+        "success": True,
+        "message": "Unions are retrived successfully!",
+        "data": result
+    }
 
 # Service function for the union dropdown, optionally of one upazila
 async def get_union_dropdown(upazila_id, db: Session):
