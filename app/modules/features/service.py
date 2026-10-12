@@ -221,7 +221,11 @@ async def create_feature_service(req, db: Session):
 
     logger.info(f"New feature created: {feature.id} - {feature.title}")
 
-    return {"message": "Feature created successfully", "feature": feature}
+    return {
+        "success": True,
+        "message": "Feature created successfully", 
+        "feature": feature
+    }
 
 
 # Candidate key like a, b, ..., z, aa, ab, ...
