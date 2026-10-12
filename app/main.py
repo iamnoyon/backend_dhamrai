@@ -68,11 +68,20 @@ async def shutdown_event():
 
 
 # create a root endpoint
-@app.get("/", tags=["Root"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Root"])
 async def read_root():
     return {
         "success": True,
         "message": "Welcome to the FastAPI application!"
+    }
+
+
+# health check endpoint for uptime monitors, HEAD returns headers only
+@app.api_route("/health", methods=["GET", "HEAD"], tags=["Root"])
+async def health_check():
+    return {
+        "success": True,
+        "message": "OK"
     }
 
 
