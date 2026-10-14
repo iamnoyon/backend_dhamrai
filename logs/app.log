@@ -433,3 +433,10 @@
 2026-10-11 17:14:57,539 - INFO - httpx - HTTP Request: GET http://testserver/union/list "HTTP/1.1 200 OK"
 2026-10-11 17:14:57,543 - INFO - Ward::Service - Fetching all wards from the database
 2026-10-11 17:15:00,867 - INFO - httpx - HTTP Request: GET http://testserver/ward/list "HTTP/1.1 200 OK"
+2026-10-14 10:26:07,769 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-14 10:26:07,979 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-14 10:26:20,518 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-14 10:26:20,630 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-14 10:26:34,305 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-14 10:26:37,376 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:26:42,150 - INFO - Ward::Service - Fetching all wards from the database

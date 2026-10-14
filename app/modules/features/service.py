@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from app.modules.union.model import Union
 from app.modules.ward.model import Ward
+from app.modules.durga_puja.model import DurgaPuja
 from string import ascii_lowercase
 from .model import Feature, FeatureResult
 
@@ -358,18 +359,53 @@ async def get_feature_result_service(feature_id: int, db: Session):
     results = db.query(FeatureResult).filter(FeatureResult.feature_id == feature.id).all()
     values = {(r.union_id, r.ward_id, r.candidate_id): r.value for r in results}
 
+    # Puja count by (union_id, ward_code), every village entry is one puja (mondir)
+    puja_counts = {
+        (d.union_id, d.ward_code): len(d.villages)
+        for d in db.query(DurgaPuja).filter(DurgaPuja.feature_id == feature.id).all()
+    }
+
+    union_ids = {w["union_id"] for w in feature.wards}
+    union_names = dict(db.query(Union.id, Union.name).filter(Union.id.in_(union_ids)).all())
+
+    wards = {}
+    unions = {}
+    for w in feature.wards:
+        puja_key = (w["union_id"], w["code"])
+        puja_count = puja_counts.get(puja_key, 0)
+
+        # A ward with durga puja villages counts its pujas, otherwise the saved value
+        if puja_key in puja_counts:
+            votes = {c["id"]: puja_count for c in feature.candidates}
+        else:
+            votes = {c["id"]: values.get((w["union_id"], w["ward_id"], c["id"]), 0) for c in feature.candidates}
+
+        wards[w["code"] or f"union-{w['union_id']}"] = {
+            "union_id": w["union_id"],
+            "union_name": union_names.get(w["union_id"]),
+            "wardNo": w["ward_no"],
+            "Total_Number": w["total_number"],
+            "votes": votes,
+            "puja_count": puja_count,
+        }
+
+        # Union totals
+        union = unions.setdefault(w["union_id"], {
+            "union_id": w["union_id"],
+            "union_name": union_names.get(w["union_id"]),
+            "ward_count": 0,
+            "puja_count": 0,
+        })
+        if w["ward_id"] is not None:
+            union["ward_count"] += 1
+        union["puja_count"] += puja_count
+
     return {
         "feature_id": feature.id,
         "title": feature.title,
         "union_id": feature.union_id,
         "candidates": feature.candidates,
-        "wards": {
-            w["code"] or f"union-{w['union_id']}": {
-                "union_id": w["union_id"],
-                "wardNo": w["ward_no"],
-                "Total_Number": w["total_number"],
-                "votes": {c["id"]: values.get((w["union_id"], w["ward_id"], c["id"]), 0) for c in feature.candidates},
-            }
-            for w in feature.wards
-        },
+        "total_puja": sum(u["puja_count"] for u in unions.values()),
+        "unions": sorted(unions.values(), key=lambda u: u["union_name"] or ""),
+        "wards": wards,
     }

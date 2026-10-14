@@ -2,6 +2,7 @@ import logging
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from app.modules.union.model import Union
+from app.modules.ward.model import Ward
 from app.modules.features.model import Feature
 from .model import DurgaPuja
 
@@ -123,5 +124,82 @@ async def get_durga_pujas(feature_id: int, db: Session):
     return {
         "success": True,
         "message": "Durga puja list",
+        "data": data
+    }
+
+
+# Service function to get the durga puja details of a ward, every feature's when feature_id is not given
+async def get_durga_puja_detail(union_id: int, ward_code, feature_id, db: Session):
+    # An empty ward code is the same as null
+    if isinstance(ward_code, str):
+        ward_code = ward_code.strip() or None
+
+    # Check the union exists
+    union = db.get(Union, union_id)
+    if union is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Union {union_id} not found"
+        )
+
+    # Check the ward is part of the union, a union without wards (paurashava) has no ward code
+    ward_no = None
+    if ward_code is None:
+        if not union.is_paurashava:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"Union {union_id} is not paurashava, ward_code is required"
+            )
+    else:
+        ward = db.query(Ward).filter(Ward.code == ward_code, Ward.union_id == union_id).first()
+        if ward is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Ward {ward_code} not found in union {union_id}"
+            )
+        ward_no = ward.ward_no
+
+    # Check the feature exists
+    feature = None
+    if feature_id is not None:
+        feature = db.get(Feature, feature_id)
+        if feature is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Feature {feature_id} not found"
+            )
+
+    query = db.query(DurgaPuja, Feature.title).join(Feature, Feature.id == DurgaPuja.feature_id).filter(
+        DurgaPuja.union_id == union_id,
+        DurgaPuja.ward_code.is_(None) if ward_code is None else DurgaPuja.ward_code == ward_code
+    )
+    if feature is not None:
+        query = query.filter(DurgaPuja.feature_id == feature.id)
+
+    def detail(durga_puja, feature_id, feature_title):
+        return {
+            "id": durga_puja.id if durga_puja else None,  # null until the first village is added
+            "feature_id": feature_id,
+            "feature_title": feature_title,
+            "union_id": union.id,
+            "union_name": union.name,
+            "ward_code": ward_code,
+            "ward_no": ward_no,
+            "villages": durga_puja.villages if durga_puja else [],
+            "puja_count": len(durga_puja.villages) if durga_puja else 0,
+            "created_at": durga_puja.created_at if durga_puja else None,
+            "updated_at": durga_puja.updated_at if durga_puja else None,
+        }
+
+    # One feature gives one object, otherwise a list of every feature's row
+    if feature is not None:
+        row = query.first()
+        data = detail(row[0] if row else None, feature.id, feature.title)
+    else:
+        data = [detail(d, d.feature_id, title) for d, title in query.order_by(DurgaPuja.feature_id).all()]
+
+    return {
+        "success": True,
+        "message": "Durga puja detail",
         "data": data
     }
