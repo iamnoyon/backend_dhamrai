@@ -81,7 +81,7 @@ async def create_durga_puja_service(req, db: Session):
     }
 
 
-# Service function to list every union's every ward of a feature with its villages, empty villages when nothing is saved yet
+# Service function to list a feature's villages by union name and ward, like {"Amta": {"ward-1": [...]}}, empty list when nothing is saved yet
 async def get_durga_pujas(feature_id: int, db: Session):
     # Check the feature exists
     feature = db.get(Feature, feature_id)
@@ -106,20 +106,13 @@ async def get_durga_pujas(feature_id: int, db: Session):
         key=lambda w: (union_names.get(w["union_id"]) or "", w["ward_no"] is not None, w["ward_no"] or 0)
     )
 
-    data = []
+    # Union name -> ward key -> villages, a union without wards (paurashava) has the key "paurashava"
+    data = {}
     for w in wards:
         durga_puja = saved.get((w["union_id"], w["code"]))
-        data.append({
-            "id": durga_puja.id if durga_puja else None,  # null until the first village is added
-            "feature_id": feature.id,
-            "union_id": w["union_id"],
-            "union_name": union_names.get(w["union_id"]),
-            "ward_code": w["code"],
-            "ward_no": w["ward_no"],
-            "villages": durga_puja.villages if durga_puja else [],
-            "created_at": durga_puja.created_at if durga_puja else None,
-            "updated_at": durga_puja.updated_at if durga_puja else None,
-        })
+        union_name = union_names.get(w["union_id"]) or f"union-{w['union_id']}"
+        ward_key = f"ward-{w['ward_no']}" if w["ward_no"] is not None else "paurashava"
+        data.setdefault(union_name, {})[ward_key] = durga_puja.villages if durga_puja else []
 
     return {
         "success": True,

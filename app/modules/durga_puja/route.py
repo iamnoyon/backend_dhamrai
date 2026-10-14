@@ -14,7 +14,7 @@ async def create_durga_puja(req: DurgaPujaCreateSchema, db: Session = Depends(ge
     return await create_durga_puja_service(req, db)
 
 
-@router.get("/list", summary="Get durga pujas of a feature with union name and ward number")
+@router.get("/list", summary="Get durga pujas of a feature by union name and ward")
 async def list_durga_pujas(feature_id: int, db: Session = Depends(get_db)):
     return await get_durga_pujas(feature_id, db)
 

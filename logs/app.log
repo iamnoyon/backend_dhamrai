@@ -440,3 +440,22 @@
 2026-10-14 10:26:34,305 - INFO - app.main - Application startup: Database tables created and logging configured.
 2026-10-14 10:26:37,376 - INFO - Union::Service - Fetching all unions from the database
 2026-10-14 10:26:42,150 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 10:33:05,972 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:33:14,058 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 10:33:20,407 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:33:24,544 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 10:39:27,092 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:39:30,875 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 10:40:10,184 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:40:12,638 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 10:40:21,087 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 10:40:24,990 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:57:30,048 - INFO - Auth::Service - Superadmin logged in: superadmin@example.com
+2026-10-14 10:59:21,844 - INFO - DurgaPuja::Service - Durga puja saved: feature 1, union 19, ward BD3026141433, 1 village(s) added
+2026-10-14 10:59:27,601 - INFO - Union::Service - Fetching all unions from the database
+2026-10-14 10:59:28,764 - INFO - Ward::Service - Fetching all wards from the database
+2026-10-14 11:02:34,540 - INFO - Feature::Service - Fetching all features from the database
+2026-10-14 11:04:36,704 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-14 11:04:53,789 - INFO - app.main - Application startup: Database tables created and logging configured.
+2026-10-14 11:06:40,466 - INFO - app.main - Application shutdown: Cleanup tasks completed.
+2026-10-14 11:06:52,182 - INFO - app.main - Application startup: Database tables created and logging configured.
